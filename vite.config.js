@@ -6,6 +6,6 @@ import EnvironmentPlugin from 'vite-plugin-environment';
 export default defineConfig({
   plugins: [
     react(),
-    EnvironmentPlugin(['NODE_ENV', 'PLTFRM_API_KEY']) // Add your environment variables here
+    EnvironmentPlugin(['NODE_ENV', 'PLTFRM_API_KEY', 'PLTFRM_URL']) // Add your environment variables here
   ],
 })

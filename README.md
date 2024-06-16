@@ -23,6 +23,8 @@ npx tailwindcss init -p
 (add the types to content in tailwind.config.js)
 (add the directives to index.css)
 
+ npm install react-chartjs-2 chartjs
+
 npm run dev
 
 ```
