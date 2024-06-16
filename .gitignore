@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # secrets
-secrets.jsx
+setup_environment_variable.md

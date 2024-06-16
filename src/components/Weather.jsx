@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
-import { PLTFRM_API_KEY } from "../../secrets";
 
 export default function Weather() {
   const [weather, setWeather] = useState();
 
+  // eslint-disable-next-line no-undef
+  const API_KEY = process.env.PLTFRM_API_KEY;
+
   useEffect(() => {
     var myHeaders = new Headers();
-    myHeaders.append("x-api-key", PLTFRM_API_KEY);
+    myHeaders.append("x-api-key", API_KEY);
     myHeaders.append("Content-Type", "application/json");
 
     var requestOptions = {
