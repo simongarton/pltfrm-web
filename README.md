@@ -3,6 +3,12 @@
 
 React/Vite + Tailwind front end for demos of pltfrm data.
 
+See the main [pltfrm](https://github.com/simongarton/pltfrm) repository for the back-end.
+
+## Hosting
+
+[Netlify](https://pltfrm-web.netlify.app/)
+
 ## Set up
 
 ```
@@ -23,4 +29,4 @@ npm run dev
 
 [Tailwind install on Vite](https://tailwindcss.com/docs/guides/vite)
 
-Edit the App page
+Edit the App page.
