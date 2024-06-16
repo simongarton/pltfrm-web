@@ -26,7 +26,6 @@ function RainHourLineChart() {
 
     fetch(URL + "/pltfrm/weather?data=rain", requestOptions)
       .then((res) => {
-        console.log("made a call to ", URL + "/pltfrm/weather?data=rain")
         return res.json();
       })
       .then((data) => {
@@ -45,7 +44,7 @@ function RainHourLineChart() {
     }
   }
 
-  const title = "Rain next hour";
+  const title = "Next 60 minutes";
 
   const options = {
     responsive: true,

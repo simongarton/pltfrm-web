@@ -9,7 +9,7 @@ const API_KEY = process.env.PLTFRM_API_KEY;
 // eslint-disable-next-line no-undef
 const URL = process.env.PLTFRM_URL;
 
-function HourForecastChart2() {
+function HourForecastTemperatures() {
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
@@ -26,26 +26,25 @@ function HourForecastChart2() {
 
     fetch(URL + "/pltfrm/weather?forecast=hour", requestOptions)
       .then((res) => {
-        console.log("made a call to ", URL + "/pltfrm/weather?forecast=hour")
         return res.json();
       })
       .then((data) => {
         setChartData(data);
       });
-    }, 6000)},[]);
+    }, 4000)},[]);
 
   const labels = [];
-  const pressure = [];
-  const humidity = [];
-
-  console.log(chartData);
+  const temps = [];
+  const feels_likes = [];
+  const dew_points = [];
 
   if (chartData["forecastHours"]) {
     for (var i = 0; i < chartData["forecastHours"].length; i++) {
       var date = new Date(chartData["forecastHours"][i]["dt"]*1000);
       labels.push(date.getHours());
-      pressure.push(chartData["forecastHours"][i]["pressure"]);
-      humidity.push(chartData["forecastHours"][i]["humidity"]);
+      temps.push(chartData["forecastHours"][i]["temp"]);
+      feels_likes.push(chartData["forecastHours"][i]["feels_like"]);
+      dew_points.push(chartData["forecastHours"][i]["dew_point"]);
     }
   }
 
@@ -62,23 +61,6 @@ function HourForecastChart2() {
         display: true,
         text: title,
       },
-      scales: {
-        y: {
-          type: 'linear',
-          display: true,
-          position: 'left',
-        },
-        y1: {
-          type: 'linear',
-          display: true,
-          position: 'right',
-
-          // grid line settings
-          grid: {
-            drawOnChartArea: false, // only want the grid lines for one axis to show up
-          },
-        },
-      }
     },
   };
 
@@ -86,16 +68,19 @@ function HourForecastChart2() {
     labels,
     datasets: [
       {
-        label: "Pressure",
-        data: pressure,
+        label: "Temperature",
+        data: temps,
         backgroundColor: transparentize(CHART_COLORS.red, 0.2),
-        yAxisID: 'y'
       },
       {
-        label: "Humidity",
-        data: humidity,
+        label: "Feels like",
+        data: feels_likes,
         backgroundColor: transparentize(CHART_COLORS.orange, 0.2),
-        yAxisID: 'y'
+      },
+      {
+        label: "Dew point",
+        data: dew_points,
+        backgroundColor: transparentize(CHART_COLORS.yellow, 0.2),
       },
     ],
   };
@@ -104,4 +89,4 @@ function HourForecastChart2() {
       <LineChart options={options} data={data} />
   );
 }
-export default HourForecastChart2;
+export default HourForecastTemperatures;

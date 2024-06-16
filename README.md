@@ -7,7 +7,17 @@ See the main [pltfrm](https://github.com/simongarton/pltfrm) repository for the 
 
 ## Hosting
 
-[Netlify](https://pltfrm-web.netlify.app/)
+Hosted on [Netlify](https://pltfrm-web.netlify.app/) which I'm finding just works.
+
+## Display
+
+![Screenshot](/documentation/web.png)
+
+I'm currently returning the current weather; the next 60 minutes of forecast rain; and the next 48 hours of various metrics.
+
+## Source data
+
+The source data is from [OpenWeatherMap](https://openweathermap.org/)/
 
 ## Set up
 
@@ -23,7 +33,7 @@ npx tailwindcss init -p
 (add the types to content in tailwind.config.js)
 (add the directives to index.css)
 
- npm install react-chartjs-2 chartjs
+npm install react-chartjs-2 chartjs
 
 npm run dev
 
@@ -31,4 +41,4 @@ npm run dev
 
 [Tailwind install on Vite](https://tailwindcss.com/docs/guides/vite)
 
-Edit the App page.
+Now edit the App page and away we go.

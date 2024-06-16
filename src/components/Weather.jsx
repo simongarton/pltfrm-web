@@ -22,7 +22,6 @@ export default function Weather() {
 
       fetch(URL + "/pltfrm/weather", requestOptions)
         .then((res) => {
-          console.log("made a call to ", URL + "/pltfrm/weather");
           return res.json();
         })
         .then((data) => {
@@ -33,7 +32,7 @@ export default function Weather() {
 
   return (
     <header className="bg-gray-50 dark:bg-gray-900 p-4">
-      <h1 className="text-grey-900 dark:text-grey-50 text-xl">current weather</h1>
+      <h1 className="text-grey-900 dark:text-grey-50 text-xl">Current weather</h1>
       {weather ? <p>{weather}</p> : <p>loading...</p>}
     </header>
   );
