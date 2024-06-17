@@ -31,7 +31,7 @@ function HourForecastTemperatures() {
       .then((data) => {
         setChartData(data);
       });
-    }, 4000)},[]);
+    }, 100)},[]);
 
   const labels = [];
   const temps = [];

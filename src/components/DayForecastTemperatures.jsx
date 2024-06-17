@@ -9,7 +9,7 @@ const API_KEY = process.env.PLTFRM_API_KEY;
 // eslint-disable-next-line no-undef
 const URL = process.env.PLTFRM_URL;
 
-function HourForecastOther() {
+function DayForecastTemperatures() {
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function HourForecastOther() {
       redirect: "follow",
     };
 
-    fetch(URL + "/pltfrm/weather?forecast=hour", requestOptions)
+    fetch(URL + "/pltfrm/weather?forecast=day", requestOptions)
       .then((res) => {
         return res.json();
       })
@@ -34,15 +34,15 @@ function HourForecastOther() {
     }, 100)},[]);
 
   const labels = [];
-  const pressure = [];
-  const humidity = [];
+  const max = [];
+  const min = [];
 
-  if (chartData["forecastHours"]) {
-    for (var i = 0; i < chartData["forecastHours"].length; i++) {
-      var date = new Date(chartData["forecastHours"][i]["dt"]*1000);
-      labels.push(date.getHours());
-      pressure.push(chartData["forecastHours"][i]["pressure"]);
-      humidity.push(chartData["forecastHours"][i]["humidity"]);
+  if (chartData["forecastDays"]) {
+    for (var i = 0; i < chartData["forecastDays"].length; i++) {
+      var date = new Date(chartData["forecastDays"][i]["dt"]*1000);
+      labels.push(date.getDay());
+      max.push(chartData["forecastDays"][i]["temp"]["max"]);
+      min.push(chartData["forecastDays"][i]["temp"]["min"]);
     }
   }
 
@@ -59,23 +59,6 @@ function HourForecastOther() {
         display: true,
         text: title,
       },
-      scales: {
-        y: {
-          type: 'linear',
-          display: true,
-          position: 'left',
-        },
-        y1: {
-          type: 'linear',
-          display: true,
-          position: 'right',
-
-          // grid line settings
-          grid: {
-            drawOnChartArea: false, // only want the grid lines for one axis to show up
-          },
-        },
-      }
     },
   };
 
@@ -83,16 +66,14 @@ function HourForecastOther() {
     labels,
     datasets: [
       {
-        label: "Pressure",
-        data: pressure,
-        backgroundColor: transparentize(CHART_COLORS.purple, 0.2),
-        yAxisID: 'y'
+        label: "Max",
+        data: max,
+        backgroundColor: transparentize(CHART_COLORS.red, 0.2),
       },
       {
-        label: "Humidity",
-        data: humidity,
-        backgroundColor: transparentize(CHART_COLORS.grey, 0.2),
-        yAxisID: 'y'
+        label: "Min",
+        data: min,
+        backgroundColor: transparentize(CHART_COLORS.orange, 0.2),
       },
     ],
   };
@@ -101,4 +82,4 @@ function HourForecastOther() {
       <LineChart options={options} data={data} />
   );
 }
-export default HourForecastOther;
+export default DayForecastTemperatures;

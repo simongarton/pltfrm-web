@@ -31,7 +31,7 @@ function RainHourLineChart() {
       .then((data) => {
         setChartData(data);
       });
-    }, 2000)},[]);
+    }, 100)},[]);
 
   const labels = [];
   const values = [];

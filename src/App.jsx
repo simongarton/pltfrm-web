@@ -3,6 +3,8 @@ import Weather from "./components/Weather";
 import RainHourLineChart from "./components/RainHourLineChart";
 import HourForecastTemperatures from "./components/HourForecastTemperatures";
 import HourForecastOther from "./components/HourForecastOther";
+import DayForecastTemperatures from "./components/DayForecastTemperatures";
+import DayForecastRain from "./components/DayForecastRain";
 
 import "./App.css";
 
@@ -12,16 +14,22 @@ function App() {
       <Header />
       <h3 className="text-center text-2xl text-gray-800 dark:text-gray-50 p-3">
         Weather data</h3>
-      <Weather />
+      <Weather className="chart" />
       <h3 className="text-center text-2xl text-gray-800 dark:text-gray-50">
         Rain for the next hour</h3>
-      <RainHourLineChart />
+      <RainHourLineChart className="chart"  />
       <h3 className="text-center text-2xl text-gray-800 dark:text-gray-50">
         Temperatures</h3>
-      <HourForecastTemperatures />
+      <HourForecastTemperatures className="chart"  />
       <h3 className="text-center text-2xl text-gray-800 dark:text-gray-50">
         Pressure and humidity</h3>
       <HourForecastOther />
+      <h3 className="text-center text-2xl text-gray-800 dark:text-gray-50">
+        Long range temperatures</h3>
+      <DayForecastTemperatures />
+      <h3 className="text-center text-2xl text-gray-800 dark:text-gray-50">
+        Long range rain</h3>
+      <DayForecastRain />
     </div>
   );
 }
