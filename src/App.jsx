@@ -5,6 +5,7 @@ import HourForecastTemperatures from "./components/HourForecastTemperatures";
 import HourForecastOther from "./components/HourForecastOther";
 import DayForecastTemperatures from "./components/DayForecastTemperatures";
 import DayForecastRain from "./components/DayForecastRain";
+import WeatherForecast from "./components/WeatherForecast";
 
 import "./App.css";
 
@@ -30,6 +31,9 @@ function App() {
       <h3 className="text-center text-2xl text-gray-800 dark:text-gray-50">
         Long range rain</h3>
       <DayForecastRain />
+      <h3 className="text-center text-2xl text-gray-800 dark:text-gray-50">
+        Forecast</h3>
+      <WeatherForecast />
     </div>
   );
 }
