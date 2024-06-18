@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
-import { transparentize, CHART_COLORS } from "../utils/Utils";
+import { transparentize, CHART_COLORS } from "../utils/ChartUtils";
+
+import { formatDateWordsShort } from "../utils/Utils";
 
 import LineChart from "./LineChart";
 
@@ -40,27 +42,13 @@ function DayForecastTemperatures() {
   if (chartData["forecastDays"]) {
     for (var i = 0; i < chartData["forecastDays"].length; i++) {
       var date = new Date(chartData["forecastDays"][i]["dt"]*1000);
-      labels.push(formatDateWords(date));
+      labels.push(formatDateWordsShort(date));
       max.push(chartData["forecastDays"][i]["temp"]["max"]);
       min.push(chartData["forecastDays"][i]["temp"]["min"]);
     }
   }
 
-  function formatDate(d) {
-    return d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
-  }
-
-  function formatDateWords(d) {
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const shortDaysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const currentDayOfWeek = shortDaysOfWeek[date.getDay()];
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    const shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    const currentMonth = shortMonths[date.getMonth()];
-    return currentDayOfWeek + ", " + currentMonth + " " + d.getDate();
-  }
-
-  const title = "Next 48 hours";
+  const title = "Temperatures, next 8 days";
 
   const options = {
     responsive: true,

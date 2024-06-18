@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { transparentize, CHART_COLORS } from "../utils/Utils";
+import { transparentize, CHART_COLORS } from "../utils/ChartUtils";
 
 import LineChart from "./LineChart";
 
@@ -46,7 +46,7 @@ function HourForecastOther() {
     }
   }
 
-  const title = "Next 48 hours";
+  const title = "Pressure and humidity, 48 hours";
 
   const options = {
     responsive: true,

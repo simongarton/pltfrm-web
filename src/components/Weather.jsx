@@ -32,7 +32,7 @@ export default function Weather() {
 
   return (
     <header className="bg-gray-50 dark:bg-gray-900 p-4">
-      <h1 className="text-grey-900 dark:text-grey-50 text-xl">Current weather</h1>
+      <h3 className="text-l font-bold text-center">Current weather</h3>
       {weather ? <p>{weather}</p> : <p>loading...</p>}
     </header>
   );

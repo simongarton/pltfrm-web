@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { transparentize, CHART_COLORS } from "../utils/Utils";
+import { transparentize, CHART_COLORS } from "../utils/ChartUtils";
 
 import LineChart from "./LineChart";
 
@@ -44,7 +44,7 @@ function RainHourLineChart() {
     }
   }
 
-  const title = "Next 60 minutes";
+  const title = "Rain, next 60 minutes";
 
   const options = {
     responsive: true,
@@ -72,7 +72,7 @@ function RainHourLineChart() {
   };
 
   return (
-      <LineChart options={options} data={data} />
+      <LineChart className="" options={options} data={data} />
   );
 }
 export default RainHourLineChart;

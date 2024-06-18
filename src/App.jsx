@@ -1,5 +1,6 @@
-import Header from "./components/Header";
 import Weather from "./components/Weather";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import RainHourLineChart from "./components/RainHourLineChart";
 import HourForecastTemperatures from "./components/HourForecastTemperatures";
 import HourForecastOther from "./components/HourForecastOther";
@@ -11,30 +12,50 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="flex flex-col">
+    <>
       <Header />
-      <h3 className="text-center text-2xl text-gray-800 dark:text-gray-50 p-3">
-        Weather data</h3>
-      <Weather className="chart" />
-      <h3 className="text-center text-2xl text-gray-800 dark:text-gray-50">
-        Rain for the next hour</h3>
-      <RainHourLineChart className="chart"  />
-      <h3 className="text-center text-2xl text-gray-800 dark:text-gray-50">
-        Temperatures</h3>
-      <HourForecastTemperatures className="chart"  />
-      <h3 className="text-center text-2xl text-gray-800 dark:text-gray-50">
-        Pressure and humidity</h3>
-      <HourForecastOther />
-      <h3 className="text-center text-2xl text-gray-800 dark:text-gray-50">
-        Long range temperatures</h3>
-      <DayForecastTemperatures />
-      <h3 className="text-center text-2xl text-gray-800 dark:text-gray-50">
-        Long range rain</h3>
-      <DayForecastRain />
-      <h3 className="text-center text-2xl text-gray-800 dark:text-gray-50">
-        Forecast</h3>
-      <WeatherForecast />
-    </div>
+      <div className="hidden md:inline">
+        <div className="grid grid-cols-2 gap-4">
+          <div className="col-span-1">
+            <Weather />
+          </div>
+          <div className="col-span-1">
+            <h3 className="text-l font-bold text-center">Next 8 days</h3>
+            <WeatherForecast />
+          </div>
+          {
+          // I cannot get this to take up the full width of the screen : it limits at 616px -->
+          }
+          <div className="col-span-2">
+            <RainHourLineChart />
+          </div>
+          <div className="col-span-1">
+            <HourForecastTemperatures />
+          </div>
+          <div className="col-span-1">
+            <HourForecastOther />
+          </div>
+          <div className="col-span-1">
+            <DayForecastTemperatures />
+          </div>
+          <div className="col-span-1">
+            <DayForecastRain />
+          </div>
+        </div>
+      </div>
+      <div className="md:hidden">
+        <div className="flex flex-col">
+          <Weather />
+          <WeatherForecast />
+          <RainHourLineChart />
+          <HourForecastTemperatures />
+          <HourForecastOther />
+          <DayForecastTemperatures />
+          <DayForecastRain />
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 }
 

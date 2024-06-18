@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { transparentize, CHART_COLORS } from "../utils/Utils";
+import { transparentize, CHART_COLORS } from "../utils/ChartUtils";
 
 import LineChart from "./LineChart";
 
@@ -48,7 +48,7 @@ function HourForecastTemperatures() {
     }
   }
 
-  const title = "Next 48 hours";
+  const title = "Temperatures, next 48 hours";
 
   const options = {
     responsive: true,

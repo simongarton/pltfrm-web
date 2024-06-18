@@ -47,7 +47,7 @@ function WeatherForecast() {
   }
 
   return (
-      <div className="grid grid-cols-4 grid-rows-2 gap-4">
+      <div className="grid grid-cols-3 grid-rows-3 gap-4">
           {icons.map((image) => (
               <img
                 key={image.id}
